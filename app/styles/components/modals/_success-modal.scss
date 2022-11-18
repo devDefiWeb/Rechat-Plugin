@@ -1,0 +1,23 @@
+.c-success-modal {
+  &, & .modal-content {
+    border: none;
+    box-shadow: none;
+    background: none;
+  }
+}
+
+.c-success-modal__body {
+  text-align: center;
+  font-size: 5rem;
+  font-family: Merriweather, sans-serif;
+}
+
+.c-success-modal__icon {
+  width: 10rem;
+  height: 10rem;
+  display: inline-block;
+  border-radius: 100%;
+  background: $brand-primary;
+  color: #ffffff;
+  padding-top: 1rem;
+}

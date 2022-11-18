@@ -1,0 +1,17 @@
+app/public/
+app/src/
+desktop/builds/
+app/styles/vendor
+
+**/*.mjml
+**/*.njk
+**/*.html
+**/*.ejs
+
+app/views/components/SvgIcons/**/*.*
+*.json
+*.sql
+*.scss
+*.css
+*.svg
+*.png

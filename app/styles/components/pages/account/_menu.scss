@@ -1,0 +1,29 @@
+.l-account {
+  .c-tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a.c-tabs__tab {
+    display: block;
+    padding: 0 1em;
+    line-height: 2.5;
+    text-decoration: none;
+    color: #000;
+  }
+
+  a.c-tabs__tab--disabled {
+    pointer-events: none;
+    color: $gray-darker;
+  }
+
+  a.c-tabs__tab:hover,
+  a.c-tabs__tab--active {
+    color: $brand-primary;
+  }
+  
+  a.c-tabs__tab--active {
+    font-weight: bold;
+  }
+}

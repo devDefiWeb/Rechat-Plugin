@@ -1,0 +1,57 @@
+$border-color: #CAD4DB;
+
+.deal-radio {
+  display: inline;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+
+  .radio-button {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border-radius: 70px;
+    background-color: #fff;
+    border: solid 1px $border-color;
+    text-align: center;
+    line-height: 17px;
+    
+    &:hover {
+      background-color: lighten($border-color, 10%);
+      border: solid 1px darken($border-color, 20%);
+    }
+
+    &.square {
+      border-radius: 3px;
+    }
+
+    &.selected {
+      background-color: #0945eb;
+      border-color: #0945eb;
+      .svg-checkmark {
+        margin: 1px;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.7;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .radio-label {
+    display: inline;
+    margin-left: 0.5rem;
+    font-size: 15px;
+    &.disabled {
+      opacity: 0.7;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,16 @@
+// Global
+html,
+body,
+#app {
+  height: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+body.ReactModal__Body--open {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.intercom-launcher-frame,
+.intercom-lightweight-app-launcher {
+  display: none !important;
+}

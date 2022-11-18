@@ -1,0 +1,33 @@
+.c-group-radios {
+  margin-bottom: 1.5rem;
+  border: solid 1px $gray;
+}
+
+.c-group-radios__item-label {
+  height: 48px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  border: inherit;
+  border-width: 0 1px 0 0;
+
+  &:last-child {
+    border-width: 0;
+  }
+}
+
+.c-group-radios__item-input {
+  @include visually-hidden();
+}
+
+.c-group-radios__item-label__text {
+  line-height: 48px;
+  font-size: 1rem;
+  font-weight: normal;
+
+  .c-group-radios__item-input:checked + & {
+    color: $brand-secondary;
+  }
+}

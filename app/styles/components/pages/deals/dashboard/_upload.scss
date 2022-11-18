@@ -1,0 +1,145 @@
+.modal-deal-upload-files {
+  width: 100% !important;
+  max-width: 924px !important;
+
+  .modal-content {
+    border: none;
+    border-radius: 8px;
+  }
+
+  .modal-header {
+    @extend %deal-modal-header;
+  }
+
+  & .modal-body, & .uploads-container {
+    @extend %upload-file-container;
+  }
+
+  .modal-footer {
+    border-top: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .help {
+      margin-right: 20px;
+      color: #7F7F7F;
+      border: 1px solid #7F7F7F;
+      border-radius: 100%;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      &:hover{
+        color: #0945eb;
+        border-color: #0945eb;
+      }
+    }
+  }
+}
+
+%upload-file-container {
+  .notify-admin {
+    text-align: right;
+    margin: 5px 0 20px 0;
+    padding-right: 7px;
+    min-height: 20px;
+
+    .deal-radio {
+      .radio-button {
+        width: 14px;
+        height: 14px;
+        line-height: 12px;
+        i {
+          font-size: 10px;
+        }
+      }
+
+      .radio-label {
+        font-size: 12px;
+      }
+    }
+
+    span.notified {
+      font-size: 12px;
+      color: gray;
+    }
+  }
+
+  .upload-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .file-name {
+      position: relative;
+      width: 52%;
+      height: 40px;
+      vertical-align: middle;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; 
+
+      img {
+        width: 17px;
+        margin-right: 12px;
+        margin-top: -3px;
+      }
+
+      .edit-icon {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #afbbc8;
+        cursor: pointer;
+
+        &:hover {
+          color: #001eb7;
+        }
+
+        &.canEditName {
+          opacity: 1;
+        }
+      }
+
+      .input-edit-name {
+        color: #7F7F7F;
+        background-color: transparent;
+        width: 79%;
+        height: 30px;
+        padding: 0 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+
+        &.disabled {
+          border: none;
+        }
+
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+
+      &:hover .edit-icon {
+        opacity: 1;
+      }
+    }
+
+    .file-task {
+      width: 32%;
+      padding-left: 16px;
+    }
+
+    .file-cta {
+      width: 16%;
+      text-align: right;
+
+     .uploaded {
+          cursor: auto;
+          background-color: #35b863;
+        }
+      }
+  }
+}

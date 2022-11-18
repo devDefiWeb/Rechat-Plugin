@@ -1,0 +1,17 @@
+.l-account__sidenav {
+  width: 15rem;
+  background: #f2f2f2;
+}
+
+.l-account__sidenav__header {
+  height: 71px;
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+
+  > h1 {
+    margin: 0;
+    line-height: 1;
+    font-size: 1.125rem;
+  }
+}

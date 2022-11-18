@@ -1,0 +1,73 @@
+.c-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1003;
+  background: rgba(4, 4, 15, 0.4);
+
+
+  &.c-full-screen-modal--page {
+    @media screen and (min-width: 48em) {
+      left: 80px;
+    }
+  }
+}
+
+.c-modal__content {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  outline: none;
+  background: #fff;
+
+  @media screen and (min-width: 48em) {
+    width: 600px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+
+    &.half-size {
+      height: 225px;
+    }
+
+    &.c-modal__content--large {
+      width: 1000px;
+    }
+  }
+
+  &.c-modal__content--height-auto {
+    height: auto;
+  }
+
+  &.c-modal__content--off-overflow {
+    overflow: initial;
+  }
+  
+  &.c-tour-sheets,
+  &.c-preview-image-modal,
+  &.c-preview-pdf-modal,
+  &.c-full-screen-modal {
+    @media screen and (min-width: 48em) {
+      width: 100%;
+      height: 100%;
+      top: auto;
+      left: auto;
+      transform: none;
+      border-radius: 0;
+      justify-content: initial;
+    }
+  }
+
+  &.c-preview-image-modal,
+  &.c-preview-pdf-modal {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}

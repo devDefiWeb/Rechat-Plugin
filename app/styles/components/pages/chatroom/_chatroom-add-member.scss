@@ -1,0 +1,27 @@
+.chatroom-add-member {
+  .modal-header {
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    border-bottom: none;
+    padding: 23px 20px;
+    .modal-title {
+      float: left;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .modal-action-button {
+      opacity: 1;
+      font-size: 21px;
+      line-height: 1;
+      color: #9b9b9b;
+      &:hover,
+      &:focus {
+        color: $brand-primary;
+      }
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+}

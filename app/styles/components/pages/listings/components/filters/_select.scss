@@ -1,0 +1,24 @@
+.c-filters__select {
+  margin-bottom: 1rem;
+
+  .Select-placeholder {
+    padding-top: 4px;
+  }
+
+  .Select-input {
+    height: 44px;
+    > input {
+      padding-top: 14px;
+      line-height: 1;
+    }
+  }
+  .Select-control {
+    border-radius: 0;
+    height: 44px;
+    border-color: $gray;
+  }
+
+  &.Select--multi .Select-value {
+    margin-top: 0.5rem;
+  }
+}

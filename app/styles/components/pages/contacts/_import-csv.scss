@@ -1,0 +1,173 @@
+.contact__import-csv {
+  position: relative;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  padding-bottom: 2em;
+
+  .c-stepper {
+    margin: 0 auto;
+
+    @media screen and (min-width: 48em) {
+      width: 33rem;
+    }
+  }
+}
+
+.contact__import-csv > .contact__import-csv__container {
+
+  .current-step {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+.contact__import-csv--mapper {
+  margin: 3em 0 16em 0;
+  padding: 0 1.5em;
+  min-height: 56.5vh;
+
+  .column-row {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 3px;
+    border: solid 1px $gray;
+    background-color: #fff;
+
+    &.heading {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      font-weight: 500;
+    }
+
+    .name {
+      width: 25%;
+      &.is-empty {
+        color: gray;
+      }
+
+      &.show-empty-cta {
+        cursor: pointer;
+        text-decoration: underline;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .primary-partner {
+      width: 15%;
+    }
+
+    .map-list {
+      width: 35%;
+    }
+
+    .map-label {
+      width: 25%;
+      padding-left: 0.5rem;
+      position: relative;
+      .isInvalid {
+        border-radius: 3px;
+        border: 1px solid #F43B38;
+      }
+      .required {
+        color: #fff;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 0 3px 0 3px;
+        padding: 0.25rem;
+        background-color: #F43B38;
+      }
+    }
+  }
+}
+
+.contact__import-csv--upload {
+  padding: 0 12%;
+}
+
+.contact__import-csv--upload-info {
+  font-size: 1.125rem;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 10%;
+  min-height: 57.5vh;
+
+  button {
+    margin-left: 0.5rem;
+  }
+
+  .sk-circle {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .error-message {
+    color: #F43B38;
+
+    .description {
+      margin: 0.5rem 0 1rem 0;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.contact__import-csv__footer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 1.5rem;
+  border-top: solid 1px $gray;
+
+
+  .contact__import-csv--upload__cancel-btn {
+    margin-right: 0.5rem;
+  }
+}
+
+.contact__import-csv--select-file__dropzone {
+  height: 28vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px dashed $gray;
+  background-color: #f2f2f2;
+
+  @media screen and (min-width: 80em) {
+    max-width: 64rem;
+  }
+
+  &.hasFile {
+    background-color: #f8f8f8;
+  }
+
+  &.isActive {
+    background-color: #fff;
+  }
+
+  .inner {
+    font-size: 0.875rem;
+  }
+
+  .inner > img {
+    width: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .inner .link {
+    color: $brand-primary;
+    cursor: pointer;
+  }
+}

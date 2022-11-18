@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact profile last touched component renders 1`] = `
+<div
+  class="MuiBox-root-3 MuiBox-root-4 makeStyles-wrapper-1"
+  data-tour-id="last-touch"
+>
+  <span>
+    Last Touch was 
+    <b>
+      just now
+    </b>
+  </span>
+  <span>
+    , you wanted to be in touch 
+    <b>
+      monthly
+    </b>
+  </span>
+</div>
+`;

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmationModal component should render modal properly 1`] = `
+<div>
+  <button
+    data-test="test-button"
+    type="button"
+  >
+    Open Modal
+  </button>
+  <div
+    class="confirmation-title"
+    data-test="confirmation-modal-title"
+  >
+    Heads up!
+  </div>
+  <div
+    class="confirmation-descr"
+    data-test="confirmation-modal-description"
+  >
+    You are missing something important. Are you sure?
+  </div>
+  <div
+    class="styled__ActionBarContainer-sc-1w2c0cs-0 cSTkgI cta"
+  >
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+      data-test="confirmation-modal-cancel-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Cancel
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+      data-test="confirmation-modal-confirm-button"
+      style="margin-left: 1em;"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Confirm
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;

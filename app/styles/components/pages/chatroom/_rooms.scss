@@ -1,0 +1,210 @@
+/**
+* Rooms
+*/
+%rooms {
+  background-color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+
+  .toolbar {
+    @extend %rooms-toolbar;
+  }
+
+  .list-container {
+    overflow: auto;
+    min-height: 81vh;
+    max-height: 81vh;
+
+    .list {
+      @extend %rooms-list;
+    }
+  }
+
+  .new-room {
+    @extend %room-new;
+  }
+}
+
+%rooms-list {
+  color: #000000;
+  .item {
+    @extend %room-item;
+  }
+}
+
+%room-new {
+  background-color: $brand-primary;
+  position: absolute;
+  width: 290px;
+  height: 40px;
+  border-radius: 4px;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+  transition: 0.5s all ease-in;
+  i {
+    margin-right: 5px;
+    font-size: 18px;
+    vertical-align: middle;
+  }
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: $brand-primary-dark;
+    svg g g {
+      fill: #fff;
+    }
+  }
+  .compose-icon {
+    display: inline-block;
+    vertical-align: text-top;
+    margin-right: 12px;
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}
+
+%rooms-toolbar {
+  padding: 20px $rooms-padding 0 $rooms-padding;
+  min-height: 70px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d4d4d4;
+
+  .toggle-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-left: 20px;
+    height: 30px;
+    width: 30px;
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 0 4px;
+    cursor: pointer;
+    .btn-tgl {
+      color: #000000;
+      margin-left: 0;
+      svg {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+      }
+    }
+    &:hover {
+      background-color: $brand-primary;
+      .btn-tgl {
+        color: #ffffff;
+      }
+      svg {
+        path {
+          fill: #ffffff;
+        }
+      }
+    }
+  }
+
+  .socket-status {
+    padding-top: 10px;
+    margin: 30px 0 10px 0;
+    color: #fff;
+    img {
+      width: 30px;
+      margin-left: 5px;
+    }
+  }
+}
+
+%room-item {
+  padding: 7px 4px 7px $rooms-padding;
+  font-size: 15px;
+  margin: 0;
+  cursor: pointer;
+  .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+  }
+  .avatar {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 3px;
+  }
+  .title {
+    padding: 0;
+    margin-left: 0.5rem;
+
+    &.hasNotification {
+      opacity: 1;
+      span {
+        font-weight: bold;
+        color: $brand-primary;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+        max-width: 95%;
+      }
+    }
+    .message-typing {
+      display: inline;
+      margin-left: 5px;
+      .message {
+        display: none;
+      }
+      img {
+        width: 30px;
+      }
+    }
+  }
+  .notifications {
+    text-align: center;
+    padding: 4px 0 0 0;
+    .count {
+      padding: 2px;
+      border-radius: 10px;
+      font-size: 11px;
+      min-width: 30px;
+      display: inline-block;
+      background-color: $brand-primary;
+    }
+  }
+  &:hover {
+    background-color: #f2f2f2;
+    .title {
+      color: $brand-primary;
+    }
+  }
+  &.active {
+    font-weight: bold;
+    .title {
+      opacity: 1;
+    }
+    .notifications {
+      display: none;
+    }
+  }
+}
+
+.room-settings {
+  margin-left: 15px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:hover svg > g {
+    fill: $brand-primary;
+  }
+}

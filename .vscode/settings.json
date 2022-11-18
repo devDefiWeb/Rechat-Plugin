@@ -1,0 +1,16 @@
+{
+  // Enable per-language
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "search.exclude": {
+    "**/*.sql": true,
+    "**/__snapshots__": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

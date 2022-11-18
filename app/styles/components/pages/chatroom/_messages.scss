@@ -1,0 +1,552 @@
+@import './room-toolbar';
+
+/**
+* Messages
+*/
+$left-w: 44px;
+
+%messages {
+  $height-of-create-message: 45px;
+  $height-of-typing-area: 5vh;
+  $messages-height: calc(
+    100vh - #{$height-of-typing-area} - #{$height-of-create-message}
+  );
+
+  padding: 0;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  .no-room {
+    text-align: center;
+    margin: 5% auto;
+    width: 50%;
+    background-color: skyblue;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 17px;
+  }
+
+  .no-messages {
+    color: #9bb1c1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 40px;
+  }
+
+  .socket-status {
+    position: absolute;
+    top: 10vh;
+    left: calc((100% - 130px) / 2);
+    z-index: 1010;
+    color: #fff;
+    margin: 0 auto;
+    width: 130px;
+    text-align: center;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background-color: #fe3824;
+    font-size: 13px;
+    font-weight: 400;
+    img {
+      margin-left: 5px;
+      width: 16px;
+    }
+  }
+
+  .messages-list {
+    $hg: $messages-height;
+    min-height: $hg;
+    max-height: $hg;
+    overflow: auto;
+    overflow-x: hidden;
+    margin-top: $room-toolbar-height;
+    padding-bottom: 30px;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: gray;
+      border-radius: 4px;
+    }
+
+    .message-info {
+      @extend %message-info;
+    }
+    .message-item {
+      @extend %message-item;
+    }
+    .message-subitem {
+      @extend %message-subitem;
+    }
+    .date-splitter {
+      @extend %date-splitter;
+    }
+  }
+
+  .message-typing {
+    height: $height-of-typing-area;
+    color: #fff;
+    padding-left: 2%;
+    font-size: 13px;
+    color: gray;
+    img {
+      width: 20px;
+      margin: 0 5px;
+    }
+  }
+
+  .message-create {
+    $mrgn: 2%;
+    background-color: #fff;
+    position: absolute;
+    height: $height-of-create-message;
+    bottom: $mrgn;
+    left: $mrgn;
+    right: $mrgn;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    .upload {
+      @extend %uploader;
+    }
+
+    .suggestions {
+      @extend %suggestions;
+    }
+
+    textarea {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-left: 7%;
+      width: 93%;
+      border: none;
+      padding: 10px 10px;
+      color: #000;
+      resize: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .toolbar {
+    @extend %room-toolbar;
+  }
+
+  .loading {
+    margin: 15px 25px;
+  }
+}
+
+%message-info {
+  background-color: #fafafa;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  margin: 15px 0;
+}
+
+%message-item {
+  margin: 15px 10px 0px 26px;
+  min-height: 40px;
+  word-wrap: break-word;
+  overflow: hidden;
+  .avatar {
+    float: left;
+    width: $left-w;
+  }
+  .content {
+    margin-left: $left-w;
+    .title {
+      font-weight: bold;
+      font-size: 15px;
+      display: inline;
+    }
+
+    .date {
+      margin-left: 10px;
+      color: #c3c3c3;
+    }
+  }
+
+  .recommendation {
+    @extend %message-item-recommendation;
+  }
+
+  .attachment {
+    @extend %message-item-attachment;
+  }
+
+  .alert {
+    @extend %message-item-alert;
+
+    .alert-widget {
+      width: 100% !important;
+      align-items: center !important;
+
+      .heading {
+        width: calc(100% - 64px) !important;
+      }
+    }
+  }
+
+  .uploading {
+    @extend %messages-item-uploading;
+  }
+
+  // &:hover {
+  //   background-color: #f8fafb;
+  // }
+}
+
+%message-subitem {
+  margin: 5px 10px 5px 26px;
+  word-wrap: break-word;
+  overflow: hidden;
+
+  .date {
+    font-size: 10px;
+    display: inline-block;
+    color: #c3c3c3;
+    opacity: 0;
+    transition: 0.2s opacity ease-in;
+    width: $left-w;
+    vertical-align: top;
+    padding-top: 2px;
+  }
+
+  &:hover {
+    // background-color: #f8fafb;
+    .date {
+      opacity: 1;
+    }
+  }
+
+  .content {
+    line-height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    width: -webkit-calc(100% - #{$left-w});
+    width: -moz-calc(100% - #{$left-w});
+    width: calc(100% - #{$left-w});
+  }
+}
+
+%date-splitter {
+  text-align: center;
+  border-bottom: 1px solid #f5f5f5;
+  line-height: 0.1em;
+  margin: 20px 3% 20px 3%;
+  span {
+    background: #fff;
+    padding: 0 10px;
+    color: #c3c3c3;
+  }
+}
+
+%message-item-attachment {
+  margin-top: 10px;
+
+  .list {
+    a {
+      color: #000;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .item {
+      display: inline-flex;
+      align-items: center;
+      min-width: 60%;
+      height: 3.5rem;
+      border-radius: 3px;
+      background-color: #f1f1f1;
+      padding: 0 1rem;
+      cursor: pointer;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+      }
+
+      .file-attach-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        background-color: #000;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+
+        svg {
+          color: #fff;
+          width: 1rem;
+        }
+      }
+
+      .file-title {
+        font-size: 0.875rem;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .file-date {
+        font-size: 0.875rem;
+        color: #7f7f7f;
+      }
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    // .item {
+    //   display: inline-block;
+    //   margin: 0 10px 10px 0;
+    //   border-radius: 5px;
+    //   min-height: 140px;
+    //   img {
+    //     min-width: 140px;
+    //     max-width: 240px;
+    //     min-height: 20px;
+    //     max-height: 140px;
+    //     border-radius: 5px;
+    //     cursor: pointer;
+    //     transition: 0.5s all ease-in;
+    //     border: 1px solid #eee;
+    //     &:hover {
+    //       opacity: 0.8;
+    //     }
+    //   }
+    // }
+  }
+}
+
+%message-item-alert {
+  $hg: 60px;
+  $wd: 330px;
+  padding: 0;
+  margin: 0;
+  .alert-widget {
+    margin-top: 5px;
+    width: $wd;
+    border-radius: 3px;
+    background-color: #e1ebf2;
+    border: solid 1px #c4d4e1;
+    display: flex;
+    align-items: stretch;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .icon {
+      width: $hg;
+      text-align: center;
+      vertical-align: middle;
+      border-right: 1px solid #e2e2e2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      img {
+        max-width: 30px;
+      }
+    }
+
+    .heading {
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      width: $wd - $hg;
+      color: #4a494a;
+      .title {
+        color: #a3a3a3;
+        font-weight: normal;
+      }
+      .proposed {
+        font-size: 14px;
+        i.fa {
+          margin-left: 10px;
+          color: #c6c6c6;
+        }
+      }
+    }
+  }
+}
+
+%messages-item-uploading {
+  .progress {
+    margin-top: 5px;
+    width: 50%;
+    height: 10px;
+  }
+}
+
+%message-item-recommendation {
+  .listing {
+    position: relative;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 360px;
+    max-height: 260px;
+    min-height: 200px;
+    background: url('/static/images/listing/small-01.jpg') no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    img {
+      width: 100%;
+      min-height: 150px;
+      border-radius: 4px;
+    }
+    .info {
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      color: #fff;
+      .status {
+        height: 24px;
+        line-height: 24px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 15px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        padding: 0px 4px;
+        display: inline-block;
+      }
+      .address-title {
+        font-size: 21px;
+        font-weight: 900;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+        margin-bottom: 10px;
+      }
+      .price {
+        font-size: 17px;
+        font-weight: bold;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+        letter-spacing: 1px;
+      }
+      .details {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        li {
+          display: inline-block;
+          margin-right: 5px;
+          text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+          &:before {
+            content: ' •  ';
+          }
+          &:first-child {
+            &:before {
+              content: '';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+%suggestions {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 15px;
+  left: -1px;
+  right: -1px;
+  transition: all 0.4s ease-in;
+  .heading {
+    background-color: rgb(250, 248, 246);
+    padding: 5px;
+    color: gray;
+    font-size: 12px;
+    .hint {
+      display: inline;
+      float: right;
+    }
+  }
+  .items {
+    max-height: 300px;
+    overflow: auto;
+  }
+  .item {
+    cursor: pointer;
+    padding: 5px 10px;
+    .name {
+      font-size: 14px;
+      color: gray;
+    }
+
+    &.selected,
+    &:hover {
+      background-color: $brand-primary;
+      color: #fff;
+      .name {
+        color: #fff;
+      }
+    }
+  }
+}
+
+%uploader {
+  position: relative;
+  width: 7%;
+  border-right: 2px solid #ccc;
+  text-align: center;
+  line-height: 100%;
+  height: 100%;
+  cursor: pointer;
+  &:hover {
+    background-color: #eee;
+  }
+
+  svg {
+    margin-top: 10px;
+    color: rgb(113, 114, 116);
+  }
+}
+
+.upload-guide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 500;
+  .upload-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 22px;
+    padding-top: 40%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 501;
+    text-align: center;
+    color: $brand-primary;
+    border: 2px dashed $brand-primary;
+    i {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.c-filters-status {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  background: #fff;
+}
+
+.c-filters-status__left-side,
+.c-filters-status__right-side {
+  height: 48px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.c-filters-status,
+.c-filters-status__accordion-target.is-active {
+  border-bottom: 1px solid $gray;
+}
+
+.c-filters-status__color,
+.c-filters-status__text-icon {
+  height: 12px;
+  width: 24px;
+  margin-right: 0.5em;
+  border-radius: 3px;
+}
+
+.c-filters-status__text-icon {
+  line-height: 1;
+}
+
+.c-filters-status__title {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.c-filters-status__accordion-trigger {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 0;
+  cursor: initial;
+  border-width: 0;
+  background: transparent;
+  fill: $gray-darker;
+  &:focus {
+    outline: none;
+  }
+  .c-filters-status__right-side.is-active > & {
+    cursor: pointer;
+
+    > svg {
+      color: $gray-base;
+    }
+    &:hover > svg {
+      color: $brand-secondary;
+    }
+  }
+}
+
+.c-filters-status__accordion-trigger__icon {
+  transition: transform 0.2s;
+  transform: rotate(0);
+  .c-filters-status__right-side > .is-active > & {
+    transform: rotate(180deg);
+  }
+}
+
+.c-filters-status__switch-toggle.c-filters-status__switch-toggle {
+  margin-top: 4px;
+}
+
+.c-filters-status__accordion-target {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #f8f8f8;
+  transition: all 0.3s;
+  @include visually-hidden();
+  &.is-active {
+    @include visually-hidden(undo);
+  }
+}
+
+.c-filters-status__separator {
+  height: 24px;
+  width: 1px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  background-color: #e9e9e9;
+}
+
+.c-filters-sub-statuses__item {
+  > input[type='checkbox'] {
+    @include visually-hidden();
+    &:checked + label > svg {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  > label {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 0;
+    padding-left: 1em;
+    cursor: pointer;
+    font-weight: normal;
+    color: #333;
+    &:hover {
+      background-color: #e9e9e9;
+    }
+    > svg {
+      visibility: hidden;
+      opacity: 0;
+      margin-right: 0.5em;
+      color: $brand-secondary;
+    }
+  }
+}
+
+.c-filters-sold-status-childrens,
+.c-filters-sub-statuses {
+  margin: 0;
+  padding: 0;
+}

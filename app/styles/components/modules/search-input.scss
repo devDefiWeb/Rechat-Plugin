@@ -1,0 +1,106 @@
+.search-input {
+  $search-width: 190px;
+  float: left;
+  width: $search-width;
+  height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  color: #9b9b9b;
+  border: solid 1px #d4d4d4;
+  background-color: #f9f9f9;
+
+  &:hover {
+    background-color: #f2f2f2;
+    .search-icon {
+      svg {
+        color: #000000;
+      }
+    }
+    input {
+      &::placeholder {
+        color: #000000;
+      }
+    }
+  }
+
+  &.focus {
+    background-color: #ffffff;
+    border-color: $brand-primary;
+    .search-icon {
+      svg {
+        color: #000000;
+      }
+    }
+    input {
+      &::placeholder {
+        color: #000000;
+      }
+    }
+  }
+
+  input {
+    width: 60px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    color: #000000;
+    display: inline-block;
+    transition: width 700ms;
+    &::placeholder {
+      color: #7f7f7f;
+      text-align: center;
+    }
+    &:focus {
+      box-shadow: none;
+      width: calc(100% - 53px);
+      text-align: left;
+      margin-right: 16px;
+    }
+    &::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      text-align: left;
+    }
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      text-align: left;
+    }
+    &:-ms-input-placeholder {
+      /* IE 10+ */
+      text-align: left;
+    }
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      text-align: left;
+    }
+  }
+  .active {
+    width: calc(100% - 53px);
+    margin-right: 16px;
+  }
+  .search-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 3px 8px 0 0;
+    svg > path {
+      fill: #7f7f7f;
+    }
+  }
+  .close-icon {
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 2px 4px;
+    margin: 0 0 0 -16px;
+    position: absolute;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+}

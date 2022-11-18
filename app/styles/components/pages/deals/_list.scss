@@ -1,0 +1,382 @@
+%deals-list {
+  overflow-x: hidden;
+  // height: 100vh;
+  .table-container {
+    @extend %deal-list--table;
+  }
+}
+
+.list-empty,
+.deals-error {
+  text-align: center;
+  margin-top: 5%;
+  img {
+    width: 91px;
+    margin-bottom: 21px;
+  }
+  .title {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  .descr {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .link {
+    color: #2196f3;
+    cursor: pointer;
+    margin-left: 5px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/**
+ *
+ */
+%deal-list--table {
+  padding: 2rem;
+
+  .table {
+    $border-color: #cad4db;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-size: 15px;
+
+    tr {
+      line-height: 60px !important;
+    }
+
+    tr td:first-child {
+      border-radius: 4px 0 0 4px;
+      border-left: 1px solid $border-color !important;
+    }
+
+    tr td:last-child {
+      border-radius: 0 4px 4px 0;
+      border-right: 1px solid $border-color !important;
+    }
+
+    td {
+      vertical-align: middle;
+      border-bottom: 1px solid $border-color !important;
+      border-top: 1px solid $border-color !important;
+    }
+
+    td > .hoverable {
+      padding-bottom: 4px;
+      border-bottom: 1px dashed #ccc;
+      i {
+        margin-left: 6px;
+        margin-top: 6px;
+        color: #ccc;
+      }
+    }
+
+    td.notification-container {
+      padding: 0 16px 0 0;
+      .unread-notifications {
+        background-color: #ff4747;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        min-width: 25px;
+        padding: 2px;
+      }
+    }
+    tr.header td {
+      border: none !important;
+    }
+
+    .header {
+      background: transparent;
+      margin-bottom: 40px;
+      font-weight: 500;
+      text-align: left;
+      color: #67717c;
+
+      td > i {
+        margin-right: 5px;
+      }
+
+      .sortable {
+        &:hover {
+          color: #9399a2;
+        }
+
+        &.isActive {
+          color: #273444;
+        }
+      }
+    }
+
+    .item {
+      cursor: pointer;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #5b6469;
+      transition: 0.2s ease-in all;
+      &:hover {
+        background-color: #f8fafb;
+      }
+    }
+
+    .item .address-row {
+      height: 60px;
+      max-height: 60px;
+      overflow: none;
+      padding: 0 !important;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &:hover {
+        text-decoration: underline;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        margin-right: 12px;
+      }
+    }
+
+    .item .status-bullet {
+      display: inline-block;
+      width: 15px;
+      height: 9px;
+      border-radius: 2px;
+      margin-right: 9px;
+    }
+  }
+}
+
+/**
+ *
+ */
+.deal-filter--tooltip {
+  $background-color: #303e4d;
+  $border-color: #303e4d;
+  padding-left: 10px !important;
+  line-height: 15px;
+  text-align: left !important;
+  font-size: 14px !important;
+  border: 1px solid $border-color !important;
+
+  &.place-top {
+    &:before {
+      border-top: 8px solid $border-color;
+    }
+    &:after {
+      border-top-color: $background-color;
+      border-top-style: solid;
+      border-top-width: 6px;
+    }
+  }
+
+  &.place-bottom {
+    &:before {
+      border-bottom: 8px solid $border-color;
+    }
+    &:after {
+      border-bottom-color: $background-color;
+      border-bottom-style: solid;
+      border-bottom-width: 6px;
+    }
+  }
+
+  &.place-left {
+    &:before {
+      border-left: 8px solid $border-color;
+    }
+    &:after {
+      border-left-color: $background-color;
+      border-left-style: solid;
+      border-left-width: 6px;
+    }
+  }
+
+  &.place-right {
+    &:before {
+      border-right: 8px solid $border-color;
+    }
+    &:after {
+      border-right-color: $background-color;
+      border-right-style: solid;
+      border-right-width: 6px;
+    }
+  }
+
+  span {
+    line-height: 15px;
+    text-align: left !important;
+  }
+}
+
+/**
+ *
+ */
+.deal-list--needs-attention--popover {
+  background-color: #303e4d;
+  border: none;
+  max-width: 420px;
+  min-width: 400px;
+  margin-left: -5px;
+
+  .arrow:after {
+    border-bottom-color: #303e4d !important;
+    border-top-color: #303e4d !important;
+  }
+
+  .popover-content {
+    background-color: #303e4d;
+    box-shadow: -1px 0 10px 0 rgba(0, 0, 0, 0.1), 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .item {
+    margin-top: 10px;
+
+    .info {
+      .info-title {
+        color: #fff;
+        display: block;
+      }
+
+      .info-desc {
+        color: #8ca2b6;
+        display: block;
+        font-size: 12px;
+      }
+    }
+
+    .bdg {
+      display: block;
+      color: #fff;
+      padding: 3px;
+      width: 100px;
+      height: 18px;
+      border-radius: 3px;
+      background-color: #f6a623;
+      font-size: 10px;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+}
+
+/**
+ * this is named pop-over to prevent name collision with existing popover.
+ * It's going to be cleaned in next release as Ramin said.
+ */
+.pop-over {
+  &.pop-over--light {
+    background-color: #fff;
+    &.top {
+      .arrow {
+        border-top-color: #fff;
+        &:after {
+          border-top-color: #fff !important;
+        }
+      }
+    }
+
+    .arrow {
+      border-bottom-color: #fff !important;
+      &:after {
+        border-bottom-color: #fff !important;
+      }
+    }
+  }
+
+  &.pop-over--dark {
+    color: rgba(255, 255, 255, 0.8);
+    fill: #fff;
+  }
+  border: none;
+  min-width: 280px;
+  max-width: inherit;
+  box-shadow: -1px 0 10px 0 rgba(0, 0, 0, 0.1), 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+  &.push-left {
+    margin-left: -5px;
+  }
+
+  .popover-content {
+    padding: 1rem;
+  }
+
+  &.no-padding .popover-content {
+    padding: 0;
+  }
+
+  .roles {
+    .item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .info {
+        padding-left: 0.5rem;
+        .role-name-container {
+          display: flex;
+          flex-direction: row;
+          white-space: nowrap;
+          .role {
+            padding-left: 4px;
+          }
+        }
+        .email {
+          display: block;
+          color: darken($color: #fff, $amount: 30%);
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+
+  .fact-table {
+    .approve-row {
+      display: none;
+    }
+
+    .fact-row {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0.5em;
+
+      .name {
+        color: #000;
+        width: 200px;
+        .status {
+          margin-right: 0.5em;
+          color: darken($color: #fff, $amount: 30%);
+
+          &.past {
+            color: #35b863;
+          }
+          &.next {
+            color: #f6a623;
+          }
+        }
+      }
+
+      .field {
+        width: 100px;
+        color: #000;
+
+        .cta {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.btn {
+  -webkit-transition: background 90ms;
+  transition: background 90ms;
+}
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: default !important;
+}
+
+.c-button--shadow {
+  padding: 0;
+  border: none;
+  color: #2196f3;
+  font-weight: normal;
+  margin-left: 0.5rem;
+  background-color: transparent;
+
+  &:focus {
+    outline-width: 0;
+  }
+}

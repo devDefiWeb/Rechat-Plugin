@@ -1,0 +1,29 @@
+.c-share-modal {
+  .tags-container.tags-container {
+    border-radius: 3px;
+    background-color: #fff;
+    margin: 1rem;
+  }
+
+  .suggestions.suggestions.suggestions {
+    margin-top: 0;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.c-share-modal__title {
+  padding: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 0 0 3px 3px;
+  background: #f9f9f9;
+}
+
+.c-share-modal__close-btn {
+  position: absolute;
+  font-size: 0;
+  top: 1rem;
+  right: 1rem;
+  border-width: 0;
+  background: transparent;
+}
